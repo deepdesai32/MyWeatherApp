@@ -56,9 +56,8 @@
 		A06B00C42489F0CE00C4E6E2 /* MyWeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				A06B00E52489FA9B00C4E6E2 /* Introduction */,
 				A06B00E12489F50800C4E6E2 /* Extensions */,
-				A06B00DD2489F12D00C4E6E2 /* ViewModels */,
-				A06B00DC2489F12600C4E6E2 /* Views */,
 				A06B00C52489F0CE00C4E6E2 /* AppDelegate.swift */,
 				A06B00C72489F0CE00C4E6E2 /* SceneDelegate.swift */,
 				A06B00D12489F0D100C4E6E2 /* Assets.xcassets */,
@@ -89,6 +88,15 @@
 				A06B00E22489F53C00C4E6E2 /* UIColor+AppTheme.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A06B00E52489FA9B00C4E6E2 /* Introduction */ = {
+			isa = PBXGroup;
+			children = (
+				A06B00DD2489F12D00C4E6E2 /* ViewModels */,
+				A06B00DC2489F12600C4E6E2 /* Views */,
+			);
+			path = Introduction;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
