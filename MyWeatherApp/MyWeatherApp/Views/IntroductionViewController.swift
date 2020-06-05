@@ -13,7 +13,7 @@ open class IntroductionViewController: UIViewController {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .red
+    
+        view.backgroundColor = UIColor.primary
     }
 }

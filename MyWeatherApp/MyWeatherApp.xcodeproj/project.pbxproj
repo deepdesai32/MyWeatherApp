@@ -12,6 +12,7 @@
 		A06B00D02489F0CE00C4E6E2 /* MyWeatherApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A06B00CE2489F0CE00C4E6E2 /* MyWeatherApp.xcdatamodeld */; };
 		A06B00D22489F0D100C4E6E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A06B00D12489F0D100C4E6E2 /* Assets.xcassets */; };
 		A06B00E02489F15000C4E6E2 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B00DF2489F15000C4E6E2 /* IntroductionViewController.swift */; };
+		A06B00E32489F53C00C4E6E2 /* UIColor+AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B00E22489F53C00C4E6E2 /* UIColor+AppTheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		A06B00D12489F0D100C4E6E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A06B00D62489F0D100C4E6E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A06B00DF2489F15000C4E6E2 /* IntroductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
+		A06B00E22489F53C00C4E6E2 /* UIColor+AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppTheme.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		A06B00C42489F0CE00C4E6E2 /* MyWeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				A06B00E12489F50800C4E6E2 /* Extensions */,
 				A06B00DD2489F12D00C4E6E2 /* ViewModels */,
 				A06B00DC2489F12600C4E6E2 /* Views */,
 				A06B00C52489F0CE00C4E6E2 /* AppDelegate.swift */,
@@ -78,6 +81,14 @@
 			children = (
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A06B00E12489F50800C4E6E2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A06B00E22489F53C00C4E6E2 /* UIColor+AppTheme.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +162,7 @@
 			files = (
 				A06B00E02489F15000C4E6E2 /* IntroductionViewController.swift in Sources */,
 				A06B00D02489F0CE00C4E6E2 /* MyWeatherApp.xcdatamodeld in Sources */,
+				A06B00E32489F53C00C4E6E2 /* UIColor+AppTheme.swift in Sources */,
 				A06B00C62489F0CE00C4E6E2 /* AppDelegate.swift in Sources */,
 				A06B00C82489F0CE00C4E6E2 /* SceneDelegate.swift in Sources */,
 			);
