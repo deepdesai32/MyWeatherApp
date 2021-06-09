@@ -8,18 +8,24 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
-open class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    
+open class MainViewController: UIViewController, CLLocationManagerDelegate {
     
     var table: UITableView?
-    
-    
-    
+    var viewModel: MainViewModel?
+
     open override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = MainViewModel()
+        viewModel?.view = self
         view.backgroundColor = .primary
+    }
+    
+    open override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        viewModel?.setupLocationManager()
     }
     
     func setupViews() {
@@ -48,10 +54,18 @@ open class MainViewController: UIViewController, UITableViewDelegate, UITableVie
         self.table = tableview
     
     }
+    
+    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if !locations.isEmpty, viewModel?.userLocation == nil {
+            viewModel?.userLocation = locations.first
+            viewModel?.locationManager.stopUpdatingLocation()
+            viewModel?.requestLocationOfWeather()
+        }
+    }
 
 }
 
-extension MainViewController {
+extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -60,7 +74,4 @@ extension MainViewController {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
-    
 }
-
-
