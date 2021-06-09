@@ -14,6 +14,7 @@
 		A06B00E02489F15000C4E6E2 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B00DF2489F15000C4E6E2 /* IntroductionViewController.swift */; };
 		A06B00E32489F53C00C4E6E2 /* UIColor+AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06B00E22489F53C00C4E6E2 /* UIColor+AppTheme.swift */; };
 		A078270626713419006B3020 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078270526713419006B3020 /* MainViewController.swift */; };
+		A0782708267142C2006B3020 /* WeatherLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0782707267142C2006B3020 /* WeatherLocationTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		A06B00DF2489F15000C4E6E2 /* IntroductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
 		A06B00E22489F53C00C4E6E2 /* UIColor+AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppTheme.swift"; sourceTree = "<group>"; };
 		A078270526713419006B3020 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A0782707267142C2006B3020 /* WeatherLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocationTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				A078270526713419006B3020 /* MainViewController.swift */,
+				A0782707267142C2006B3020 /* WeatherLocationTableViewCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0782708267142C2006B3020 /* WeatherLocationTableViewCell.swift in Sources */,
 				A06B00E02489F15000C4E6E2 /* IntroductionViewController.swift in Sources */,
 				A06B00D02489F0CE00C4E6E2 /* MyWeatherApp.xcdatamodeld in Sources */,
 				A06B00E32489F53C00C4E6E2 /* UIColor+AppTheme.swift in Sources */,
