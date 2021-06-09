@@ -59,7 +59,8 @@ open class MainViewController: UIViewController, CLLocationManagerDelegate {
         if !locations.isEmpty, viewModel?.userLocation == nil {
             viewModel?.userLocation = locations.first
             viewModel?.locationManager.stopUpdatingLocation()
-            viewModel?.requestLocationOfWeather()
+            viewModel?.fetchUserLocation()
+            viewModel?.populateWeatherData()
         }
     }
 
