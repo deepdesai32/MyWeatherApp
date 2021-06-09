@@ -21,7 +21,7 @@ open class IntroductionViewController: UIViewController {
     }
     
     @objc func enterPressed(_ button: UIButton) {
-        print("Hey")
+        print("Test")
     }
     
     //setting up introduction view: Logo and Button
