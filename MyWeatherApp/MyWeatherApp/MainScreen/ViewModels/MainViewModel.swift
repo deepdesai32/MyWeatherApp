@@ -20,6 +20,7 @@ class MainViewModel  {
     var long: String?
     
     var namedLocation: String?
+    var currentWeather: Current?
     
     func setupLocationManager() {
         locationManager.delegate = view.self
@@ -49,7 +50,7 @@ class MainViewModel  {
         
         guard let latitude = lat, let longitude = long else {return}
         
-        let urlString = "https://api.openweathermap.org/data/2.5/onecall?lat=\(latitude)&lon=\(longitude)&exclude=minutely,alerts&appid=\(APIKey)"
+        let urlString = "https://api.openweathermap.org/data/2.5/onecall?lat=\(latitude)&lon=\(longitude)&exclude=minutely,alerts&units=metric&appid=\(APIKey)"
         guard let url = URL(string: urlString) else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -61,7 +62,9 @@ class MainViewModel  {
             
             do {
                 let weatherInfo = try JSONDecoder().decode(WeatherData.self, from: data!)
-                
+                DispatchQueue.main.async {
+                    self.view?.tableView?.reloadData()
+                       }
                 completion(.success(weatherInfo))
                 
             } catch let jsonError {
@@ -75,7 +78,7 @@ class MainViewModel  {
         fetchWeatherData { (result) in
             switch result {
             case .success(let weather):
-                print(weather.current.clouds)
+                self.currentWeather = weather.current
             case .failure(let error):
                 print("Failed to fetch data:", error)
             }

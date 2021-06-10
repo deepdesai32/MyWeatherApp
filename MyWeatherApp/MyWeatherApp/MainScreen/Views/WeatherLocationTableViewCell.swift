@@ -34,7 +34,7 @@ class WeatherLocationTableViewCell: UITableViewCell {
     let secondaryLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Baskerville-SemiBold", size: 16)
-        label.textColor = .systemGray5
+        label.textColor = .systemGray6
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -43,7 +43,7 @@ class WeatherLocationTableViewCell: UITableViewCell {
     let descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Baskerville-SemiBold", size: 16)
-        label.textColor = .systemGray5
+        label.textColor = .systemGray6
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -122,7 +122,7 @@ class WeatherLocationTableViewCell: UITableViewCell {
             weatherImage.widthAnchor.constraint(equalToConstant: 10),
             weatherImage.heightAnchor.constraint(equalToConstant: 50),
             
-            tempLabel.leadingAnchor.constraint(equalTo: currentLocationLabel.centerXAnchor, constant: 90),
+            tempLabel.leadingAnchor.constraint(equalTo: currentLocationLabel.centerXAnchor, constant: 85),
             tempLabel.trailingAnchor.constraint(equalTo: cellView.trailingAnchor),
             tempLabel.bottomAnchor.constraint(equalTo: cellView.bottomAnchor, constant: -2),
             tempLabel.widthAnchor.constraint(equalToConstant: 10),
@@ -131,7 +131,7 @@ class WeatherLocationTableViewCell: UITableViewCell {
         
     }
     
-    func setup(row: Int, city: String?) {
+    func setup(row: Int, city: String?, currentWeather: Current?) {
         
         if row == 0 {
             currentLocationLabel.text = "My Location"
@@ -139,6 +139,12 @@ class WeatherLocationTableViewCell: UITableViewCell {
         } else {
             currentLocationLabel.text = city
         }
+        
+        guard let description = currentWeather?.weather[0].weatherDescription.rawValue, let temp = currentWeather?.temp else {return}
+        
+        descriptionLabel.text = description
+        weatherImage.image = UIImage(named: description)
+        tempLabel.text = Int(temp).description + "°"
     }
     
   

@@ -65,7 +65,7 @@ open class MainViewController: UIViewController, CLLocationManagerDelegate, UITa
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 1
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -76,7 +76,7 @@ open class MainViewController: UIViewController, CLLocationManagerDelegate, UITa
     
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let weatherCell = cell as? WeatherLocationTableViewCell
-        weatherCell?.setup(row: indexPath.row ,city: viewModel?.namedLocation)
+        weatherCell?.setup(row: indexPath.row, city: viewModel?.namedLocation, currentWeather: viewModel?.currentWeather)
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
