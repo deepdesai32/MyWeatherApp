@@ -10,16 +10,16 @@ import Foundation
 import UIKit
 import CoreLocation
 
-open class MainViewController: UIViewController, CLLocationManagerDelegate {
+open class MainViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource {
     
-    var table: UITableView?
+    weak var tableView: UITableView?
     var viewModel: MainViewModel?
 
     open override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = MainViewModel()
         viewModel?.view = self
-        view.backgroundColor = .primary
+        setupViews()
     }
     
     open override func viewDidAppear(_ animated: Bool) {
@@ -30,28 +30,29 @@ open class MainViewController: UIViewController, CLLocationManagerDelegate {
     
     func setupViews() {
         
-        let tableview: UITableView = {
+        let tableView: UITableView = {
             let table = UITableView()
-            table.backgroundColor = .clear
+            table.backgroundColor = .white
             table.translatesAutoresizingMaskIntoConstraints = false
+            table.separatorStyle = .none
             return table
         }()
    
-        tableview.register(WeatherLocationTableViewCell.self, forCellReuseIdentifier: "cellId")
+        tableView.register(WeatherLocationTableViewCell.self, forCellReuseIdentifier: "cellId")
        
-        view.addSubview(tableview)
+        view.addSubview(tableView)
        
         NSLayoutConstraint.activate([
-            tableview.topAnchor.constraint(equalTo: self.view.topAnchor),
-            tableview.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            tableview.rightAnchor.constraint(equalTo: self.view.rightAnchor),
-            tableview.leftAnchor.constraint(equalTo: self.view.leftAnchor)
+            tableView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
         ])
-       
-        table?.delegate = self
-        table?.dataSource = self
         
-        self.table = tableview
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        self.tableView = tableView
     
     }
     
@@ -63,16 +64,21 @@ open class MainViewController: UIViewController, CLLocationManagerDelegate {
             viewModel?.populateWeatherData()
         }
     }
-
-}
-
-extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+       let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! WeatherLocationTableViewCell
+        
+        return cell
     }
+    
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 150
+    }
+    
+
 }
