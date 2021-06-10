@@ -17,6 +17,7 @@
 		A0782708267142C2006B3020 /* WeatherLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0782707267142C2006B3020 /* WeatherLocationTableViewCell.swift */; };
 		A078270C2671444D006B3020 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078270B2671444D006B3020 /* MainViewModel.swift */; };
 		A078270E26715FCA006B3020 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078270D26715FCA006B3020 /* WeatherData.swift */; };
+		A07827102671C171006B3020 /* CLLocation+CityLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A078270F2671C171006B3020 /* CLLocation+CityLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		A0782707267142C2006B3020 /* WeatherLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocationTableViewCell.swift; sourceTree = "<group>"; };
 		A078270B2671444D006B3020 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		A078270D26715FCA006B3020 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
+		A078270F2671C171006B3020 /* CLLocation+CityLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+CityLocation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				A06B00E22489F53C00C4E6E2 /* UIColor+AppTheme.swift */,
+				A078270F2671C171006B3020 /* CLLocation+CityLocation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				A078270626713419006B3020 /* MainViewController.swift in Sources */,
 				A06B00C62489F0CE00C4E6E2 /* AppDelegate.swift in Sources */,
 				A06B00C82489F0CE00C4E6E2 /* SceneDelegate.swift in Sources */,
+				A07827102671C171006B3020 /* CLLocation+CityLocation.swift in Sources */,
 				A078270E26715FCA006B3020 /* WeatherData.swift in Sources */,
 				A078270C2671444D006B3020 /* MainViewModel.swift in Sources */,
 			);

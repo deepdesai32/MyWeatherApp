@@ -18,9 +18,8 @@ class MainViewModel  {
     
     var lat: String?
     var long: String?
-
     
-    
+    var namedLocation: String?
     
     func setupLocationManager() {
         locationManager.delegate = view.self
@@ -34,6 +33,16 @@ class MainViewModel  {
         
         lat = "\(location.coordinate.latitude)"
         long = "\(location.coordinate.longitude)"
+        
+        _ = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        location.fetchCityAndCountry { city, country, error in
+            guard let city = city, let _ = country, error == nil else { return }
+            self.namedLocation = city
+            
+            DispatchQueue.main.async {
+                self.view?.setupViews()
+            }
+        }
     }
     
     func fetchWeatherData(completion: @escaping ((Result<WeatherData, Error>) -> ())) {
@@ -72,6 +81,5 @@ class MainViewModel  {
             }
         }
     }
-
     
 }

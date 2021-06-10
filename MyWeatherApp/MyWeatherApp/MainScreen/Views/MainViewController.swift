@@ -19,7 +19,6 @@ open class MainViewController: UIViewController, CLLocationManagerDelegate, UITa
         super.viewDidLoad()
         viewModel = MainViewModel()
         viewModel?.view = self
-        setupViews()
     }
     
     open override func viewDidAppear(_ animated: Bool) {
@@ -73,6 +72,11 @@ open class MainViewController: UIViewController, CLLocationManagerDelegate, UITa
        let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! WeatherLocationTableViewCell
         
         return cell
+    }
+    
+    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let weatherCell = cell as? WeatherLocationTableViewCell
+        weatherCell?.setup(row: indexPath.row ,city: viewModel?.namedLocation)
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

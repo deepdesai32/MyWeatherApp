@@ -25,7 +25,6 @@ class WeatherLocationTableViewCell: UITableViewCell {
     let currentLocationLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Baskerville-Bold", size: 20)
-        label.text = "My Location"
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -36,7 +35,6 @@ class WeatherLocationTableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont(name: "Baskerville-SemiBold", size: 16)
         label.textColor = .systemGray5
-        label.text = "Roswell"
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -46,7 +44,6 @@ class WeatherLocationTableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont(name: "Baskerville-SemiBold", size: 16)
         label.textColor = .systemGray5
-        label.text = "Partly Cloudy"
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -57,7 +54,6 @@ class WeatherLocationTableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont(name: "Baskerville-Bold", size: 40)
         label.textColor = .white
-        label.text = "22°"
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -72,14 +68,6 @@ class WeatherLocationTableViewCell: UITableViewCell {
         
         return imageView
     }()
-    
-//    let lowTempLabel: UILabel = {
-//        let label = UILabel()
-//        label.text = "L:19°"
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//
-//        return label
-//    }()
     
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -99,7 +87,6 @@ class WeatherLocationTableViewCell: UITableViewCell {
         cellView.addSubview(descriptionLabel)
         cellView.addSubview(tempLabel)
         cellView.addSubview(weatherImage)
-        //cellView.addSubview(lowTempLabel)
         
         self.selectionStyle = .none
         
@@ -142,7 +129,17 @@ class WeatherLocationTableViewCell: UITableViewCell {
             tempLabel.heightAnchor.constraint(equalToConstant: 50),
         ])
         
-   }
+    }
+    
+    func setup(row: Int, city: String?) {
+        
+        if row == 0 {
+            currentLocationLabel.text = "My Location"
+            secondaryLabel.text = city
+        } else {
+            currentLocationLabel.text = city
+        }
+    }
     
   
 }
